@@ -1,0 +1,782 @@
+<?xml version="1.0" ?>
+<ReportProperties>
+	<Report ID="RPTCash1" name="Teller Cash Register Report">
+		<CustomHeaders>
+			<Branch type="xpath">userInfo/BranchNo</Branch>
+			<CashierId type="xpath">userInfo/TellerNo</CashierId>
+			<BankName type="literal">state bank</BankName>
+		</CustomHeaders>
+		<StoredProcedureCount>RepTellerCashRegisterCount</StoredProcedureCount>
+		<StoredProcedure>RepTellerCashRegister</StoredProcedure>
+		<sTXCollection>RepCashReceiptTeller</sTXCollection>
+		<Action>TellerCashRegister</Action>
+		<Lines>40</Lines>
+		<DataFormat>
+			<AmountReceived length="18">PadStringsValueFormat</AmountReceived>
+			<AmountPaid length="18">PadStringsValueFormat</AmountPaid>
+		</DataFormat>
+		<PageTotals>
+			<AmountReceived />
+			<AmountPaid />
+			
+			<n2000 />
+			<n500 />
+			<n200 />
+			<n100 />
+			<n50 />
+			<n20 />
+			<n10 />
+			<n5 />
+			<n2 />
+			<n1 />
+			<!--Start of IR 20100133  -->
+			<c2000 />
+			<c1000 />
+			<!--End of IR 20100133  -->
+			<c500 />
+			<c200 />
+			<c100 />
+			<c50 />
+			<c25 />
+			
+			<Returns />
+		</PageTotals>
+		<!--<PageTotals>
+			<AmountReceived />
+			<AmountPaid />
+			<n1000 />
+			<n500 />
+			<n100 />
+			<n50 />
+			<n20 />
+			<n10 />
+			<n5 />
+			<n2 />
+			<n1 />
+			<c1000 />		
+			<c500 />
+			<c200 />
+			<c100 />
+			<c50 />
+			<c25 />
+			<Returns />
+		</PageTotals>-->
+		<CustomFooters>
+			<TellerCashOpeningBalance type="procedure" argCount="2" argument1="userInfo/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepTellerCashOpeningBalance">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</TellerCashOpeningBalance>
+			<CashHandedToCashOfficer type="procedure" argCount="2" argument1="userInfo/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepCashHandedToCashOfficer">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</CashHandedToCashOfficer>
+			<TotalReceiptsPayments type="procedure" looping="true" argCount="2" argument1="userInfo/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepTellerBankReceiptsPayments">
+				<DataFormat FormatColumns="ALL" length="20">PadStringsValueFormat</DataFormat>
+			</TotalReceiptsPayments>
+			<TotalTellerTransfer type="procedure" looping="true" argCount="2" argument1="userInfo/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepTellerToTellerTransfer">
+				<DataFormat FormatColumns="ALL" length="20">PadStringsValueFormat</DataFormat>
+			</TotalTellerTransfer>
+			<TotalGovtReceiptsPayments type="procedure" looping="true" argCount="2" argument1="userInfo/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepGovtReceiptPayments">
+				<DataFormat FormatColumns="ALL" length="20">PadStringsValueFormat</DataFormat>
+			</TotalGovtReceiptsPayments>
+			<TellerClosingBalance type="procedure" argCount="2" argument1="userInfo/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepTellerClosingBalance">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</TellerClosingBalance>
+			<TellerPreviousDayBalance type="procedure" argCount="2" argument1="userInfo/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepTellerPreviousDayBalance">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</TellerPreviousDayBalance>
+		</CustomFooters>
+		<SaveReport type="literal">true</SaveReport>
+		<!--<SwapAmount>
+			<TellerCashSwap type="procedure" looping="true" argCount="2" argument1="userInfo/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepTellerSwap"></TellerCashSwap>
+		</SwapAmount>-->
+	</Report>
+	<Report ID="RPTCash13" name="Teller Cash Register Report">
+		<CustomHeaders>
+			<Branch type="xpath">userInfo/BranchNo</Branch>
+			<CashierId type="xpath">userInfo/TellerNo</CashierId>
+			<BankName type="literal">state bank</BankName>
+		</CustomHeaders>
+		<StoredProcedureCount>RepSaveTellerCashRegisterCount</StoredProcedureCount>
+		<StoredProcedure>RepSaveTellerCashRegister</StoredProcedure>
+		<sTXCollection>RepCashReceiptTeller</sTXCollection>
+		<Action>TellerCashRegister</Action>
+		<Lines>30</Lines>
+		<DataFormat>
+			<AmountReceived length="14">PadStringsValueFormat</AmountReceived>
+			<AmountPaid length="14">PadStringsValueFormat</AmountPaid>
+		</DataFormat>
+		<PageTotals>
+			<AmountReceived />
+			<AmountPaid />
+			
+			<n2000 />
+			<n500 />
+			<n200 />
+			<n100 />
+			<n50 />
+			<n20 />
+			<n10 />
+			<n5 />
+			<n2 />
+			<n1 />
+			<!--Start of IR 20100133  -->
+			<c2000 />
+			<c1000 />
+			<!--End of IR 20100133  -->
+			<c500 />
+			<c200 />
+			<c100 />
+			<c50 />
+			<c25 />
+			
+		</PageTotals>
+		<CustomFooters>
+			<TellerCashOpeningBalance type="procedure" argCount="2" argument1="userInfo/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepTellerCashOpeningBalance">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</TellerCashOpeningBalance>
+			<CashHandedToCashOfficer type="procedure" argCount="2" argument1="userInfo/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepCashHandedToCashOfficer">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</CashHandedToCashOfficer>
+			<TotalReceiptsPayments type="procedure" looping="true" argCount="2" argument1="userInfo/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepTellerBankReceiptsPayments">
+				<DataFormat FormatColumns="ALL" length="20">PadStringsValueFormat</DataFormat>
+			</TotalReceiptsPayments>
+			<TotalTellerTransfer type="procedure" looping="true" argCount="2" argument1="userInfo/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepTellerToTellerTransfer">
+				<DataFormat FormatColumns="ALL" length="20">PadStringsValueFormat</DataFormat>
+			</TotalTellerTransfer>
+			<TotalGovtReceiptsPayments type="procedure" looping="true" argCount="2" argument1="userInfo/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepGovtReceiptPayments">
+				<DataFormat FormatColumns="ALL" length="20">PadStringsValueFormat</DataFormat>
+			</TotalGovtReceiptsPayments>
+			<TellerClosingBalance type="procedure" argCount="2" argument1="userInfo/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepTellerClosingBalance">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</TellerClosingBalance>
+		</CustomFooters>
+		<SaveReport type="literal">true</SaveReport>
+		<!--<SwapAmount>
+			<TellerCashSwap type="procedure" looping="true" argCount="2" argument1="userInfo/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepSaveTellerSwap"></TellerCashSwap>
+		</SwapAmount>-->
+	</Report>
+	<Report ID="RPTCash11" name="Teller Forex Cash Register Report">
+		<CustomHeaders>
+			<Branch type="xpath">userInfo/BranchNo</Branch>
+			<CashierId type="xpath">userInfo/TellerNo</CashierId>
+			<BankName type="literal">state bank</BankName>
+		</CustomHeaders>
+		<StoredProcedureCount>RepTellerFXCashRegisterCount</StoredProcedureCount>
+		<StoredProcedure>RepTellerFXCashRegister</StoredProcedure>
+		<sTXCollection>RepFXCashReceiptTeller</sTXCollection>
+		<Action>TellerFXCashRegister</Action>
+		<Lines>35</Lines>
+		<DataFormat>
+			<AmountReceived length="18">PadStringsValueFormat</AmountReceived>
+			<AmountPaid length="18">PadStringsValueFormat</AmountPaid>
+		</DataFormat>
+		<PageTotals>
+			<AmountReceived />
+			<AmountPaid />
+
+			<n2000 />
+			<n500 />
+			<n200 />
+			<n100 />
+			<n50 />
+			<n20 />
+			<n10 />
+			<n5 />
+			<n2 />
+			<n1 />
+			<!--Start of IR 20100133  -->
+			<c2000 />
+			<c1000 />
+			<!--End of IR 20100133  -->
+			<c500 />
+			<c200 />
+			<c100 />
+			<c50 />
+			<c25 />
+
+		</PageTotals>
+		<!--<CustomFooters>
+			<TellerTotalINRReceipt type="procedure" looping="true" argCount="2" argument1="userInfo/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepTellerFXReceiptsPayments">
+				<DataFormat FormatColumns="ALL" length="20">PadStringsValueFormat</DataFormat>
+			</TellerTotalINRReceipt>
+		</CustomFooters>-->
+		<SaveReport type="literal">true</SaveReport>
+	</Report>
+	<Report ID="RPTCash12" name="Teller Cash Register by Cash Officer">
+		<CustomHeaders>
+			<Branch type="xpath">userInfo/BranchNo</Branch>
+			<CashierId type="xpath">screenData/TellerNo</CashierId>
+			<BankName type="literal">state bank</BankName>
+		</CustomHeaders>
+		<StoredProcedureCount>RepTellerCashRegisterCount</StoredProcedureCount>
+		<StoredProcedure>RepTellerCashRegister</StoredProcedure>
+		<sTXCollection>RepCashReceiptTeller</sTXCollection>
+		<Action>TellerCashRegister</Action>
+		<Lines>40</Lines>
+		<DataFormat>
+			<AmountReceived length="20">PadStringsValueFormat</AmountReceived>
+			<AmountPaid length="20">PadStringsValueFormat</AmountPaid>
+		</DataFormat>
+		<PageTotals>
+			<AmountReceived />
+			<AmountPaid />
+
+			<n2000 />
+			<n500 />
+			<n200 />
+			<n100 />
+			<n50 />
+			<n20 />
+			<n10 />
+			<n5 />
+			<n2 />
+			<n1 />
+			<!--Start of IR 20100133  -->
+			<c2000 />
+			<c1000 />
+			<!--End of IR 20100133  -->
+			<c500 />
+			<c200 />
+			<c100 />
+			<c50 />
+			<c25 />
+
+			<Returns />
+		</PageTotals>
+		<CustomFooters>
+			<TellerCashOpeningBalance type="procedure" argCount="2" argument1="screenData/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepTellerCashOpeningBalance">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</TellerCashOpeningBalance>
+			<CashHandedToCashOfficer type="procedure" argCount="2" argument1="screenData/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepCashHandedToCashOfficer">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</CashHandedToCashOfficer>
+			<TotalReceiptsPayments type="procedure" looping="true" argCount="2" argument1="screenData/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepTellerBankReceiptsPayments">
+				<DataFormat FormatColumns="ALL" length="20">PadStringsValueFormat</DataFormat>
+			</TotalReceiptsPayments>
+			<TotalTellerTransfer type="procedure" looping="true" argCount="2" argument1="screenData/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepTellerToTellerTransfer">
+				<DataFormat FormatColumns="ALL" length="20">PadStringsValueFormat</DataFormat>
+			</TotalTellerTransfer>
+			<TotalGovtReceiptsPayments type="procedure" looping="true" argCount="2" argument1="screenData/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepGovtReceiptPayments">
+				<DataFormat FormatColumns="ALL" length="20">PadStringsValueFormat</DataFormat>
+			</TotalGovtReceiptsPayments>
+			<TellerClosingBalance type="procedure" argCount="2" argument1="screenData/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepTellerClosingBalance">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</TellerClosingBalance>
+			<TellerPreviousDayBalance type="procedure" argCount="2" argument1="screenData/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepTellerPreviousDayBalance">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</TellerPreviousDayBalance>
+		</CustomFooters>
+		<SaveReport type="literal">true</SaveReport>
+		<!--<SwapAmount>
+			<TellerCashSwap type="procedure" looping="true" argCount="2" argument1="screenData/TellerNo" argument1name="nTellerID" argument2="userInfo/BranchNo" argument2name="nBranchNo" procedurename="RepTellerSwap"></TellerCashSwap>
+		</SwapAmount>-->
+	</Report>
+	<Report ID="RPTCash4" name="CashOfficerReport">
+		<CustomHeaders>
+			<Branch type="xpath">userInfo/BranchNo</Branch>
+			<CashierId type="xpath">userInfo/TellerNo</CashierId>
+			<BankName type="literal">state bank</BankName>
+		</CustomHeaders>
+		<StoredProcedureCount>RepCashOfficerCount</StoredProcedureCount>
+		<StoredProcedure>RepCashOfficer</StoredProcedure>
+		<sTXCollection>RepCashOfficer</sTXCollection>
+		<Action>CashOfficerReport</Action>
+		<Lines>45</Lines>
+		<DataFormat>
+			<AmountReceived length="20">PadStringsValueFormat</AmountReceived>
+			<AmountPaid length="20">PadStringsValueFormat</AmountPaid>
+		</DataFormat>
+		<PageTotals>
+			<AmountReceived />
+			<AmountPaid />
+			
+			<n2000 />
+			<n500 />
+			<n200 />
+			<n100 />
+			<n50 />
+			<n20 />
+			<n10 />
+			<n5 />
+			<n2 />
+			<n1 />
+			<!--Start of IR 20100133  -->
+			<c2000 />
+			<c1000 />
+			<!--End of IR 20100133  -->
+			<c500 />
+			<c200 />
+			<c100 />
+			<c50 />
+			<c25 />
+			
+			<Returns />
+		</PageTotals>
+	</Report>
+	<Report ID="RPTCash5" name="Offline Transactions Report">
+		<CustomHeaders>
+			<Branch type="xpath">userInfo/BranchNo</Branch>
+			<CashierId type="xpath">userInfo/TellerNo</CashierId>
+			<BankName type="literal">state bank</BankName>
+		</CustomHeaders>
+		<StoredProcedureCount>RepOfflineTransactionsCount</StoredProcedureCount>
+		<StoredProcedure>RepOfflineTransactions</StoredProcedure>
+		<sTXCollection>RepOfflineTransactions</sTXCollection>
+		<Action>OfflineTransactionsReport</Action>
+		<Lines>41</Lines>
+		<DataFormat>
+			<DebitAmount length="20">PadStringsValueFormat</DebitAmount>
+			<CreditAmount length="20">PadStringsValueFormat</CreditAmount>
+		</DataFormat>
+		<SaveReport type="literal">true</SaveReport>
+	</Report>
+	<Report ID="RPTCash6" name="UnsuccessfulLoginReport">
+		<CustomHeaders>
+			<Branch type="xpath">userInfo/BranchNo</Branch>
+			<CashierId type="xpath">userInfo/TellerNo</CashierId>
+			<BankName type="literal">state bank</BankName>
+		</CustomHeaders>
+		<StoredProcedureCount>RepUnsuccessfulLoginCount</StoredProcedureCount>
+		<StoredProcedure>RepUnsuccessfulLogin</StoredProcedure>
+		<sTXCollection>RepUnsuccessfulLogin</sTXCollection>
+		<Action>UnsuccessfulLoginReport</Action>
+		<Lines>40</Lines>
+	</Report>
+     <Report ID="RPTAccBal1" name="AccountBalanceReport">
+		<StoredProcedureCount>RepAccBalCount</StoredProcedureCount>
+		<StoredProcedure>RepAccBal</StoredProcedure>
+		<sTXCollection>RepAccBal</sTXCollection>
+		<Action>AccountBalanceReport</Action>
+		<Lines>40</Lines>
+	</Report>   
+	<Report ID="RPTCash7" name="Jotting Book - Part I">
+		<CustomHeaders>
+			<Branch type="xpath">userInfo/BranchNo</Branch>
+			<CashierId type="xpath">userInfo/TellerNo</CashierId>
+			<BankName type="literal">state bank</BankName>
+		</CustomHeaders>
+		<StoredProcedureCount>RepJottingTellerCount</StoredProcedureCount>
+		<StoredProcedure>REPJOTTINGTELLER</StoredProcedure>
+		<sTXCollection>REPJOTTINGTELLER</sTXCollection>
+		<Action>REPJOTTINGTELLER</Action>
+		<Lines>40</Lines>
+		<DataFormat>
+			<OPENINGCASH length="17">PadStringsValueFormat</OPENINGCASH>
+			<CASHRECEIVEDFROMTELLER length="17">PadStringsValueFormat</CASHRECEIVEDFROMTELLER>
+			<BANKRECEIPT length="17">PadStringsValueFormat</BANKRECEIPT>
+			<GOVTRECEIPTS length="17">PadStringsValueFormat</GOVTRECEIPTS>
+			<TOTALRECIEPTS length="17">PadStringsValueFormat</TOTALRECIEPTS>
+			<BANKPAYMENTS length="17">PadStringsValueFormat</BANKPAYMENTS>
+			<GOVTPAYMENTS length="17">PadStringsValueFormat</GOVTPAYMENTS>
+			<TOCASHIER length="17">PadStringsValueFormat</TOCASHIER>
+			<TOTALPAYMENTS length="17">PadStringsValueFormat</TOTALPAYMENTS>
+			<AMOUNT length="17">PadStringsValueFormat</AMOUNT>
+		</DataFormat>
+		<SaveReport type="literal">true</SaveReport>
+		<PageTotals>
+			<OPENINGCASH />
+			<CASHRECEIVEDFROMTELLER />
+			<BANKRECEIPT />
+			<GOVTRECEIPTS />
+			<TOTALRECIEPTS />
+			<BANKPAYMENTS />
+			<GOVTPAYMENTS />
+			<TOCASHIER />
+			<TOTALPAYMENTS />
+			<AMOUNT />
+		</PageTotals>
+	</Report>
+	<Report ID="RPTCash8" name="Vault Transaction Report">
+		<CustomHeaders>
+			<Branch type="xpath">userInfo/BranchNo</Branch>
+			<CashierId type="xpath">userInfo/TellerNo</CashierId>
+			<BankName type="literal">state bank</BankName>
+			<VaultTellerId type="xpath">screenData/VAULTTELLERID</VaultTellerId>
+		</CustomHeaders>
+		<StoredProcedureCount>RepCurrencyChestCount</StoredProcedureCount>
+		<StoredProcedure>RepCurrencyChest</StoredProcedure>
+		<sTXCollection>RepCurrencyChest</sTXCollection>
+		<Action>RepCurrencyChest</Action>
+		<Lines>30</Lines>
+		<DataFormat>
+			<Amount length="20">PadStringsValueFormat</Amount>
+		</DataFormat>
+		<!--Start of ir 72416-->
+		<!--<CustomFooters>
+			<TotalWithdrawlFromVault type="procedure" looping="true" argCount="1" argument1="userInfo/BranchNo" argument1name="nBranchNo" procedurename="RepCurrencyChestTotalWithdrawn">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</TotalWithdrawlFromVault>
+			<TotalDepositInVault type="procedure" looping="true" argCount="1" argument1="userInfo/BranchNo" argument1name="nBranchNo" procedurename="RepCurrencyChestTotalDeposit">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</TotalDepositInVault>
+			<NetAmountInCurrencyChest type="procedure" looping="true" argCount="1" argument1="userInfo/BranchNo" argument1name="nBranchNo" procedurename="RepNetCurrencyChest">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</NetAmountInCurrencyChest>
+			<VaultOpeningBalance type="procedure" argCount="1" argument1="userInfo/BranchNo" argument1name="nBranchNo" procedurename="RepVaultOpeningBalance">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</VaultOpeningBalance>
+			<vaultOpeningDenomination type="procedure" looping="true" argCount="1" argument1="userInfo/BranchNo" argument1name="nBranchNo" procedurename="RepVaultOpeningDenomination"></vaultOpeningDenomination>
+			<VaultClosingBalance type="procedure" argCount="1" argument1="userInfo/BranchNo" argument1name="nBranchNo" procedurename="RepVaultClosingBalance">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</VaultClosingBalance>
+			<vaultClosingDenomination type="procedure" looping="true" argCount="1" argument1="userInfo/BranchNo" argument1name="nBranchNo" procedurename="RepVaultClosingDenomination"></vaultClosingDenomination>
+			<TotalLockedAmount type="procedure" looping="true" argCount="2" argument1="userInfo/BranchNo" argument1name="nBranchNo" argument2="userInfo/BPREnabled" argument2name="sBPRBranch" procedurename="RepTotalLockedAmount">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</TotalLockedAmount>
+			<FireStoreProcedure type="procedure" argCount="1" argument1="userInfo/BranchNo" argument1name="nBranchNo" procedurename="PopulateTempJottingBookSummary"></FireStoreProcedure>
+		</CustomFooters>-->
+		<CustomFooters>
+			<TotalWithdrawlFromVault type="procedure" looping="true" argCount="3" argument1="userInfo/BranchNo" argument1name="nBranchNo" argument2="userInfo/TellerNo" argument2name="nTellerNo" argument3="userInfo/IS_SCAB" argument3name="nScabFlag" procedurename="RepCurrencyChestTotalWithdrawn">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</TotalWithdrawlFromVault>
+			<TotalDepositInVault type="procedure" looping="true" argCount="3" argument1="userInfo/BranchNo" argument1name="nBranchNo" argument2="userInfo/TellerNo" argument2name="nTellerNo" argument3="userInfo/IS_SCAB" argument3name="nScabFlag" procedurename="RepCurrencyChestTotalDeposit">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</TotalDepositInVault>
+			<NetAmountInCurrencyChest type="procedure" looping="true" argCount="3" argument1="userInfo/BranchNo"  argument2="userInfo/TellerNo" argument2name="nTellerNo" argument3="userInfo/IS_SCAB" argument3name="nScabFlag" argument1name="nBranchNo" procedurename="RepNetCurrencyChest">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</NetAmountInCurrencyChest>
+			<VaultOpeningBalance type="procedure" argCount="3" argument1="userInfo/BranchNo" argument1name="nBranchNo" argument2="userInfo/TellerNo" argument2name="nTellerNo" argument3="userInfo/IS_SCAB" argument3name="nScabFlag" procedurename="RepVaultOpeningBalance">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</VaultOpeningBalance>
+			<vaultOpeningDenomination type="procedure" looping="true" argCount="3" argument1="userInfo/BranchNo" argument2="userInfo/TellerNo" argument2name="nTellerNo" argument3="userInfo/IS_SCAB" argument3name="nScabFlag" argument1name="nBranchNo" procedurename="RepVaultOpeningDenomination">
+			</vaultOpeningDenomination>
+			<VaultClosingBalance type="procedure" argCount="3" argument1="userInfo/BranchNo" argument1name="nBranchNo" argument2="userInfo/TellerNo" argument2name="nTellerNo" argument3="userInfo/IS_SCAB" argument3name="nScabFlag" procedurename="RepVaultClosingBalance">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</VaultClosingBalance>
+			<vaultClosingDenomination type="procedure" looping="true" argCount="3" argument1="userInfo/BranchNo" argument2="userInfo/TellerNo" argument2name="nTellerNo" argument3="userInfo/IS_SCAB" argument3name="nScabFlag" argument1name="nBranchNo" procedurename="RepVaultClosingDenomination">
+			</vaultClosingDenomination>
+			<TotalLockedAmount type="procedure" looping="true" argCount="4" argument1="userInfo/BranchNo" argument1name="nBranchNo"  argument2="userInfo/BPREnabled" argument2name="sBPRBranch" argument3="userInfo/TellerNo" argument3name="nTellerNo" argument4="userInfo/IS_SCAB" argument4name="nScabFlag" procedurename="RepTotalLockedAmount">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</TotalLockedAmount>
+			<FireStoreProcedure type="procedure" argCount="3" argument1="userInfo/BranchNo" argument1name="nBranchNo" argument2="userInfo/TellerNo" argument2name="nTellerNo" argument3="userInfo/IS_SCAB" argument3name="nScabFlag" procedurename="PopulateTempJottingBookSummary">
+			</FireStoreProcedure>
+		</CustomFooters>
+		<!--End of ir 72416-->
+		<SaveReport type="literal">true</SaveReport>
+	</Report>
+	<Report ID="RPTCash81" name="Currency Chest Report">
+		<CustomHeaders>
+			<Branch type="xpath">userInfo/BranchNo</Branch>
+			<CashierId type="xpath">userInfo/TellerNo</CashierId>
+			<BankName type="literal">state bank</BankName>
+		</CustomHeaders>
+		<StoredProcedureCount>RepCTTransactionsCount</StoredProcedureCount>
+		<StoredProcedure>RepCTTransactions</StoredProcedure>
+		<sTXCollection>RepCTTransactions</sTXCollection>
+		<Action>RepCTTransactions</Action>
+		<Lines>35</Lines>
+		<DataFormat>
+			<Amount length="20">PadStringsValueFormat</Amount>
+		</DataFormat>
+		<!--Start of ir 72416-->
+		<!--<CustomFooters>
+			<TotalWithdrawlFromCT type="procedure" looping="true" argCount="1" argument1="userInfo/BranchNo" argument1name="nBranchNo" procedurename="RepCTtotalWidrawal">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</TotalWithdrawlFromCT>
+			<TotalDepositToCT type="procedure" looping="true" argCount="1" argument1="userInfo/BranchNo" argument1name="nBranchNo" procedurename="RepCTtotalDeposit">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</TotalDepositToCT>
+			<NetAmountInCT type="procedure" looping="true" argCount="1" argument1="userInfo/BranchNo" argument1name="nBranchNo" procedurename="REPTOTALCTTRANSACTIONS">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</NetAmountInCT>
+		</CustomFooters>-->
+		<CustomFooters>
+			<TotalWithdrawlFromCT type="procedure" looping="true" argCount="3" argument1="userInfo/BranchNo" argument1name="nBranchNo" argument2="userInfo/TellerNo" argument2name="nTellerNo" argument3="userInfo/IS_SCAB" argument3name="nScabFlag" procedurename="RepCTtotalWidrawal">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</TotalWithdrawlFromCT>
+			<TotalDepositToCT type="procedure" looping="true" argCount="3" argument1="userInfo/BranchNo" argument1name="nBranchNo" argument2="userInfo/TellerNo" argument2name="nTellerNo" argument3="userInfo/IS_SCAB" argument3name="nScabFlag" procedurename="RepCTtotalDeposit">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</TotalDepositToCT>
+			<NetAmountInCT type="procedure" looping="true" argCount="3" argument1="userInfo/BranchNo" argument1name="nBranchNo" argument2="userInfo/TellerNo" argument2name="nTellerNo" argument3="userInfo/IS_SCAB" argument3name="nScabFlag" procedurename="REPTOTALCTTRANSACTIONS">
+				<DataFormat FormatColumns="FirstOnly" length="20">PadStringsValueFormat</DataFormat>
+			</NetAmountInCT>
+		</CustomFooters>
+		<!--End of ir 72416-->
+		<SaveReport type="literal">true</SaveReport>
+	</Report>
+	<Report ID="RPTCash82" name="Vault Check Totals Report">
+		<CustomHeaders>
+			<Branch type="xpath">userInfo/BranchNo</Branch>
+			<CashierId type="xpath">userInfo/TellerNo</CashierId>
+			<BankName type="literal">state bank</BankName>
+			<VaultTellerId type="xpath">screenData/VAULTTELLERID</VaultTellerId>
+		</CustomHeaders>
+		<StoredProcedureCount>RepCheckTotalsReceiptCount</StoredProcedureCount>
+		<StoredProcedure>RepCheckTotalsReceipt</StoredProcedure>
+		<sTXCollection>RepCheckTotalsReceipt</sTXCollection>
+		<Action>RepCheckTotalsReceipt</Action>
+		<Lines>15</Lines>
+		<DataFormat>
+			<OPENINGBALANCE length="20">PadStringsValueFormat</OPENINGBALANCE>
+			<BANKRECEIPTS length="20">PadStringsValueFormat</BANKRECEIPTS>
+			<GOVTRECEIPTS length="20">PadStringsValueFormat</GOVTRECEIPTS>
+			<FROMCT length="20">PadStringsValueFormat</FROMCT>
+			<TOTALRECEIPT length="20">PadStringsValueFormat</TOTALRECEIPT>
+			<CLOSINGBALANCE length="20">PadStringsValueFormat</CLOSINGBALANCE>
+			<BANKPAYMENTS length="20">PadStringsValueFormat</BANKPAYMENTS>
+			<GOVTPAYMENTS length="20">PadStringsValueFormat</GOVTPAYMENTS>
+			<TOCT length="20">PadStringsValueFormat</TOCT>
+			<TOTALPAYMENTS length="20">PadStringsValueFormat</TOTALPAYMENTS>
+			<LOCKEDAMOUNT length="20">PadStringsValueFormat</LOCKEDAMOUNT>
+			<OPENBAL length="20">PadStringsValueFormat</OPENBAL>
+		</DataFormat>
+		<!--<CustomFooters>
+			<CheckTotalPayments type="procedure" looping="true" argCount="1" argument1="userInfo/BranchNo" argument1name="nBranchNo" procedurename="RepCheckTotalsWithdrawal">
+				<DataFormat FormatColumns="ALL" length="20">PadStringsValueFormat</DataFormat>
+			</CheckTotalPayments>
+		</CustomFooters>-->
+		<SaveReport type="literal">true</SaveReport>
+	</Report>
+	<Report ID="RPTCash9" name="Jotting Book - Part II">
+		<CustomHeaders>
+			<Branch type="xpath">userInfo/BranchNo</Branch>
+			<CashierId type="xpath">userInfo/TellerNo</CashierId>
+			<BankName type="literal">state bank</BankName>
+		</CustomHeaders>
+		<StoredProcedureCount>RepJottingDenominationCount</StoredProcedureCount>
+		<StoredProcedure>RepJottingDenomination</StoredProcedure>
+		<sTXCollection>RepJottingDenomination</sTXCollection>
+		<Action>RepJottingDenomination</Action>
+		<Lines>40</Lines>
+		<DataFormat>
+			<AMOUNT length="20">PadStringsValueFormat</AMOUNT>
+		</DataFormat>
+		<PageTotals>
+		
+			<AMOUNT />
+			<N2000 />
+			<N500 />
+			<N200 />
+			<N100 />
+			<N50 />
+			<N20 />
+			<N10 />
+			<N5 />
+			<N2 />
+			<N1 />
+			<!--Start of IR 20100133  -->
+			<C2000 />
+			<C1000 />
+			<!--End of IR 20100133  -->
+			<C500 />
+			<C200 />
+			<C100 />
+			<C50 />
+			<C25 />
+		
+		</PageTotals>
+		<SaveReport type="literal">true</SaveReport>
+	</Report>
+	<Report ID="RPTCash10" name="Jotting Book Summary">
+		<CustomHeaders>
+			<Branch type="xpath">userInfo/BranchNo</Branch>
+			<CashierId type="xpath">userInfo/TellerNo</CashierId>
+			<BankName type="literal">state bank</BankName>
+		</CustomHeaders>
+		<StoredProcedureCount>RepJottingBookSummaryCount</StoredProcedureCount>
+		<StoredProcedure>RepJottingBookSummary</StoredProcedure>
+		<sTXCollection>RepJottingBookSummary</sTXCollection>
+		<Action>RepJottingBookSummary</Action>
+		<Lines>10</Lines>
+		<DataFormat>
+			<AMOUNT length="20">PadStringsValueFormat</AMOUNT>
+		</DataFormat>
+		<SaveReport type="literal">true</SaveReport>
+	</Report>
+	<Report ID="RPTImage1" name="Image Access Report">
+		<CustomHeaders>
+			<Branch type="xpath">userInfo/BranchNo</Branch>
+			<CashierId type="xpath">userInfo/TellerNo</CashierId>
+			<BankName type="literal">state bank</BankName>
+		</CustomHeaders>
+		<StoredProcedureCount>RepImageAccessCount</StoredProcedureCount>
+		<StoredProcedure>RepImageAccess</StoredProcedure>
+		<sTXCollection>RepImageAccess</sTXCollection>
+		<Action>RepImageAccess</Action>
+		<Lines>30</Lines>
+	</Report>
+	<Report ID="RPTImage2" name="Account Images Report">
+		<CustomHeaders>
+			<Branch type="xpath">userInfo/BranchNo</Branch>
+			<CashierId type="xpath">userInfo/TellerNo</CashierId>
+			<BankName type="literal">state bank</BankName>
+			<ImageType type="xpath">screenData/ImageType</ImageType>
+		</CustomHeaders>
+		<StoredProcedureCount>RepAccountImagesCount</StoredProcedureCount>
+		<StoredProcedure>RepAccountImages</StoredProcedure>
+		<sTXCollection>RepAccountImages</sTXCollection>
+		<Action>RepAccountImages</Action>
+		<Lines>35</Lines>
+	</Report>
+	<Report ID="RPTOutwardClearing1" name="Outward Clearing Report">
+		<CustomHeaders>
+			<ScreenDate type="xpath">screenData/date1</ScreenDate>
+			<Branch type="xpath">userInfo/BranchNo</Branch>
+			<CashierId type="xpath">userInfo/TellerNo</CashierId>
+			<BankName type="literal">state bank</BankName>
+		</CustomHeaders>
+		<StoredProcedureCount>RepOutwardClearingCount</StoredProcedureCount>
+		<StoredProcedure>RepOutwardClearing</StoredProcedure>
+		<sTXCollection>RepOutwardClearing</sTXCollection>
+		<Action>RepOutwardClearing</Action>
+		<Lines>27</Lines>
+		<DataFormat>
+			<amount length="20">PadStringsValueFormat</amount>
+		</DataFormat>
+		<PageTotals>
+			<amount/>
+		</PageTotals>
+	</Report>
+	<Report ID="RPTSIG" name="Signature Access Report">
+		<StoredProcedure>RepSignatureAccess</StoredProcedure>
+		<sTXCollection>RepSignatureAccess</sTXCollection>
+		<Action>RepSignatureAccess</Action>
+	</Report>
+	<Report ID="OFFLINE" name="Offline Online Time">
+		<StoredProcedure>RepOfflineOnline</StoredProcedure>
+		<sTXCollection>RepOfflineOnline</sTXCollection>
+		<Action>RepOfflineOnline</Action>
+	</Report>
+	<Report ID="RPTOffSign" name="OFFICER SIGNATURES">
+		<CustomHeaders>
+			<Branch type="xpath">userInfo/BranchNo</Branch>
+			<CashierId type="xpath">userInfo/TellerNo</CashierId>
+			<BankName type="literal">state bank</BankName>
+		</CustomHeaders>
+		<sTXCollection>Image</sTXCollection>
+		<Action>TellerCashRegister</Action>
+		<Lines>40</Lines>
+		<DataFormat>
+			<AmountReceived length="18">PadStringsValueFormat</AmountReceived>
+			<AmountPaid length="18">PadStringsValueFormat</AmountPaid>
+		</DataFormat>
+		
+		<SaveReport type="literal">true</SaveReport>
+		
+	</Report>
+	<Report ID="024008" name="DDP Report">
+		<CustomHeaders>
+			<HBRCHDESC type="xpath">screenData/HBRCHDESC</HBRCHDESC>
+			<cpcbrch  type="xpath">screenData/cpcbrch</cpcbrch>
+			<CBRCHDESC  type="xpath">screenData/CBRCHDESC</CBRCHDESC>
+			<BrchInteger1 type="xpath">screenData/BrchInteger1</BrchInteger1>
+			<HostDate type="xpath">screenData/HostDate</HostDate>
+			<date1 type="xpath">screenData/date1</date1>
+			<CADDRESS1 type="xpath">screenData/CADDRESS1</CADDRESS1>
+			<CADDRESS2 type="xpath">screenData/CADDRESS2</CADDRESS2>
+			<CADDRESS3 type="xpath">screenData/CADDRESS3</CADDRESS3>
+		</CustomHeaders>
+		<StoredProcedureCount>DDPCount</StoredProcedureCount>
+		<StoredProcedure></StoredProcedure>
+		<sTXCollection>RepDDP</sTXCollection>
+		<Action>DDPReport</Action>
+		<Lines>20</Lines>		
+		<DataFormat>
+			<insamt1 length="17">PadStringsValueFormat</insamt1>			
+		</DataFormat>	
+		<CustomFooters>
+			<HBRCHDESC type="xpath">screenData/HBRCHDESC</HBRCHDESC>
+			<BrchInteger1  type="xpath">screenData/BrchInteger1</BrchInteger1>			
+			<HPHONENO type="xpath">screenData/HPHONENO</HPHONENO>
+			<total type="xpath">screenData/total</total>
+			<HADDRESS1 type="xpath">screenData/HADDRESS1</HADDRESS1>
+			<HADDRESS2 type="xpath">screenData/HADDRESS2</HADDRESS2>
+			<HADDRESS3 type="xpath">screenData/HADDRESS3</HADDRESS3>
+		</CustomFooters>
+		<SaveReport type="literal">true</SaveReport>		
+	</Report>
+	<Report ID="LCPCForwardingLetter" name="LCPC FORWARDING LETTER">
+		<CustomHeaders>				
+			<date1 type="xpath">screenDataOriginal/date1</date1>
+			<HBRCHDESC type="xpath">screenDataOriginal/HBRCHDESC</HBRCHDESC>
+			<Branch type="xpath">screenDataOriginal/Branch</Branch>		
+			<HADDRESS1 type="xpath">screenDataOriginal/HADDRESS1</HADDRESS1>
+			<HADDRESS2 type="xpath">screenDataOriginal/HADDRESS2</HADDRESS2>
+			<HADDRESS3 type="xpath">screenDataOriginal/HADDRESS3</HADDRESS3>			
+			<repparam type="xpath">screenDataOriginal/repparam</repparam>
+			<ACC type="xpath">screenDataOriginal/ACC</ACC>
+			<FormattedDate type="xpath">screenDataOriginal/FormattedDate</FormattedDate>	
+			<Type type="xpath">screenDataOriginal/Type</Type>				
+		</CustomHeaders>
+		<StoredProcedureCount>LCPCREPCOUNT</StoredProcedureCount>
+		<StoredProcedure>LCPCREP</StoredProcedure>
+		<sTXCollection>LCPCREP</sTXCollection>
+		<Action>LCPCREP</Action>
+		<Lines>25</Lines>		
+		<CustomFooters>
+			<HBRCHDESC type="xpath">screenDataOriginal/HBRCHDESC</HBRCHDESC>
+			<Branch type="xpath">screenDataOriginal/Branch</Branch>	
+		</CustomFooters>			
+		<SaveReport type="literal">true</SaveReport>	
+		<CustomName type="literal">true</CustomName>	
+	</Report>
+	<!-- Start of IR 75143 -->
+<Report ID="020701" name="BGL PRINTING">
+		<CustomHeaders>				
+			<date1 type="xpath">screenDataOriginal/date1</date1>
+			<HBRCHDESC type="xpath">screenDataOriginal/HBRCHDESC</HBRCHDESC>
+			<Branch type="xpath">screenDataOriginal/Branch</Branch>		
+			<HADDRESS1 type="xpath">screenDataOriginal/HADDRESS1</HADDRESS1>
+			<HADDRESS2 type="xpath">screenDataOriginal/HADDRESS2</HADDRESS2>
+			<HADDRESS3 type="xpath">screenDataOriginal/HADDRESS3</HADDRESS3>			
+			<repparam type="xpath">screenDataOriginal/repparam</repparam>
+			<ACC type="xpath">screenDataOriginal/ACC</ACC>
+			<FormattedDate type="xpath">screenDataOriginal/FormattedDate</FormattedDate>	
+			<Type type="xpath">screenDataOriginal/Type</Type>				
+		</CustomHeaders>
+		<StoredProcedureCount>LCPCREPCOUNT</StoredProcedureCount>
+		<StoredProcedure>LCPCREP</StoredProcedure>
+		<sTXCollection>LCPCREP</sTXCollection>
+		<Action>LCPCREP</Action>
+		<Lines>25</Lines>		
+		<CustomFooters>
+			<HBRCHDESC type="xpath">screenDataOriginal/HBRCHDESC</HBRCHDESC>
+			<Branch type="xpath">screenDataOriginal/Branch</Branch>	
+		</CustomFooters>			
+		<SaveReport type="literal">false</SaveReport>	
+		<SaveMergeReport  type="literal">true</SaveMergeReport>	
+	</Report>
+	<Report ID="020703" name="BGL PRINTING">
+		<CustomHeaders>				
+			<date1 type="xpath">screenDataOriginal/date1</date1>
+			<HBRCHDESC type="xpath">screenDataOriginal/HBRCHDESC</HBRCHDESC>
+			<Branch type="xpath">screenDataOriginal/Branch</Branch>		
+			<HADDRESS1 type="xpath">screenDataOriginal/HADDRESS1</HADDRESS1>
+			<HADDRESS2 type="xpath">screenDataOriginal/HADDRESS2</HADDRESS2>
+			<HADDRESS3 type="xpath">screenDataOriginal/HADDRESS3</HADDRESS3>			
+			<repparam type="xpath">screenDataOriginal/repparam</repparam>
+			<ACC type="xpath">screenDataOriginal/ACC</ACC>
+			<FormattedDate type="xpath">screenDataOriginal/FormattedDate</FormattedDate>	
+			<Type type="xpath">screenDataOriginal/Type</Type>				
+		</CustomHeaders>
+		<StoredProcedureCount>LCPCREPCOUNT</StoredProcedureCount>
+		<StoredProcedure>LCPCREP</StoredProcedure>
+		<sTXCollection>LCPCREP</sTXCollection>
+		<Action>LCPCREP</Action>
+		<Lines>25</Lines>		
+		<CustomFooters>
+			<HBRCHDESC type="xpath">screenDataOriginal/HBRCHDESC</HBRCHDESC>
+			<Branch type="xpath">screenDataOriginal/Branch</Branch>	
+		</CustomFooters>			
+		<SaveReport type="literal">false</SaveReport>	
+		<SaveMergeReport  type="literal">true</SaveMergeReport>	
+	</Report>
+	<!-- End of IR 75143 -->
+<!--IR 17966-->
+	<Report ID="RandomTeller" name="Random Teller Check Report">
+		<CustomHeaders>
+			<Branch type="xpath">userInfo/BranchNo</Branch>
+			<TellerId type="xpath">userInfo/TellerNo</TellerId>
+			<BankName type="literal">state bank</BankName>
+			<BrchName type="xpath">screenData/HBRCHDESC</BrchName>
+		</CustomHeaders>
+		<StoredProcedureCount>RepRandomTellerCount</StoredProcedureCount>
+		<StoredProcedure>RepRandomTeller</StoredProcedure>
+		<sTXCollection>RepRandomTeller</sTXCollection>
+		<Action>RepRandomTeller</Action>
+		<Lines>25</Lines>
+		<DataFormat>
+			<Amount length="20">PadStringsValueFormat</Amount>
+		</DataFormat>	
+		<SaveReport type="literal">true</SaveReport>
+	</Report>
+</ReportProperties>
