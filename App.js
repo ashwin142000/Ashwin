@@ -1,5 +1,4 @@
 import {useState} from 'react';
-import Button from './Button.js';
 
 export default function MyApp() {
   const [color,setColor]=useState('');
@@ -20,7 +19,7 @@ export default function MyApp() {
     <div>
       <h1 className={color}>Welcome to my app</h1>
       
-      <Button onClick={handleClick}/>
+      <button onClick={handleClick}>I'm a button</button>
     </div>
   );
 }
